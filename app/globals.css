@@ -2,32 +2,320 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: 75%;
+    /* 12/16 = 0.75 */
   }
+
+  .aspect-h-12 {
+    position: relative;
+  }
+}
+
+.word-container {
+  position: relative;
+  text-align: center;
+}
+
+.word {
+  position: absolute;
+  opacity: 0;
+  font-size: 2em;
+  animation: fadeZoom 3s ease-in-out forwards;
+  font-weight: 900;
+  color: #000000;
+  white-space: normal;
+}
+
+#word1 {
+  animation-delay: 0s;
+}
+
+#word2 {
+  animation-delay: 3s;
+}
+
+#word3 {
+  animation-delay: 6s;
+}
+
+#word4 {
+  animation-delay: 9s;
+}
+
+#word5 {
+  animation-delay: 12s;
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  10% {
+    opacity: 1;
+
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(5);
+  }
+}
+
+@keyframes revealAll {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.word-container:after {
+  content: "EMPATHY. CLARITY. PURPOSE. SIMPLICITY. HUMANCENTRIC ";
+  position: relative;
+  opacity: 0;
+  /* Initial opacity set to 0 to start */
+  font-size: 2em;
+  color: #000000;
+  font-weight: 800;
+  animation: revealText 3s ease-in-out forwards;
+  animation-delay: 15s;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.word-container:before {
+  content: "";
+  position: absolute;
+  top: calc(-129% - 7px);
+  left: 100%;
+  transform: translateX(-24%);
+  background-image: url(/shadow-walk.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  animation: revealImage 1s ease-in-out forwards;
+  animation-delay: 16s;
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes revealImage {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.list-body {
+  padding-bottom: 5px;
+}
+
+.list-title {
+  font-size: 1.2rem;
+}
+
+.hero-img {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .word-container {
+    text-align: center;
+  }
+
+  .word {
+    font-size: 1em;
+    /* Adjust font size for smaller screens */
+    position: absolute;
+    opacity: 0;
+    animation: fadeZoom 3s ease-in-out forwards;
+    font-weight: 900;
+    color: #000000;
+    white-space: normal;
+  }
+
+  #word1 {
+    animation-delay: 0s;
+  }
+
+  #word2 {
+    animation-delay: 3s;
+  }
+
+  #word3 {
+    animation-delay: 6s;
+  }
+
+  #word4 {
+    animation-delay: 9s;
+  }
+
+  #word5 {
+    animation-delay: 12s;
+  }
+
+  @keyframes fadeZoom {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+      /* Adjust scale for smaller screens */
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(3);
+      /* Adjust scale for smaller screens */
+    }
+  }
+
+  .word-container:after {
+    content: "EMPATHY. CLARITY. PURPOSE. SIMPLICITY. HUMANCENTRIC ";
+    position: relative;
+    opacity: 0;
+    font-size: 1.5em;
+    line-height: 2;
+    /* Adjust font size for smaller screens */
+    color: #000000;
+    font-weight: 800;
+    animation: revealText 3s ease-in-out forwards;
+    animation-delay: 15s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+  }
+
+  .word-container:before {
+    content: "";
+    position: absolute;
+    top: calc(-119% - 7px);
+    left: 46%;
+    transform: translateX(-39%);
+    background-image: url(/shadow-walk.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    /* Adjust height for smaller screens */
+    opacity: 0;
+    animation: revealImage 1s ease-in-out forwards;
+    animation-delay: 16s;
+  }
+
+  @keyframes revealText {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes revealImage {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .hero-img {
+    height: 350px;
+    display: flex;
+    padding-top: 40px;
+    justify-content: center !important;
+    text-align: center;
+    position: relative;
+  }
+
+  .client-img {
+    object-fit: contain;
+    width: 70px;
+    height: 70px !important;
+  }
+
+  .client-img2 {
+    object-fit: contain;
+    width: 120px !important;
+  }
+
+  .imghei2 {
+    object-fit: cover;
+    width: 100%;
+    height: 160px;
+
+  }
+}
+
+.imghei2 {
+  object-fit: cover;
+  width: 100%;
+  height: 400px;
+
+}
+
+.client-img {
+  object-fit: contain;
+  width: 110px;
+  height: 110px;
+}
+
+.client-img2 {
+  object-fit: contain;
+  width: 170px;
+}
+
+.dropdown-trigger-wrapper:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-content {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
