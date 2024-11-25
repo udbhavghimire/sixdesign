@@ -28,10 +28,10 @@ const Footer = () => {
       </div>
 
       <footer className="pt-16 pb-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 ">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             {/* Logo and Description - 4 columns */}
-            <div className="md:col-span-4 flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center md:items-start">
               <Link href="/">
                 <Image
                   src="/sixdesign-logo.svg"
@@ -41,7 +41,7 @@ const Footer = () => {
                   className="mb-8"
                 />
               </Link>
-              <p className="text-[15px] leading-relaxed text-gray-600 text-center md:text-left">
+              <p className="text-[15px] leading-relaxed text-black text-center md:text-left">
                 We specialize in creating high-quality websites, captivating landing pages, and visually
                 appealing designs tailored for realtors, brokerages, and builders. Please note that the
                 information provided on this website is for general reference only, and we cannot be held liable
@@ -51,30 +51,30 @@ const Footer = () => {
             </div>
 
             {/* About Section */}
-            <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left pt-8 md:pt-16 ml-20">
-              <div className="w-full max-w-xs text-center">
-                <h5 className="text-xl font-bold mb-4 text-center">About</h5>
+            <div className='flex justify-center'><div className="flex flex-col items-center md:items-start  md:text-left pt-8 md:pt-16">
+              <div className="w-full max-w-[250px] text-center md:text-left">
+                <h5 className="text-xl font-bold mb-4">About</h5>
                 <div className="space-y-2">
-                  <p className="text-[15px] text-gray-600">Company : Sixdesign</p>
-                  <p className="text-[15px] text-gray-600">
+                  <p className="text-[15px] text-black">Company : Sixdesign</p>
+                  <p className="text-[15px] text-black">
                     Services : Project Marketing, CRM Integration & Branding for Realtors, Brokerages &
                     Builders
                   </p>
-                  <p className="text-[15px] text-gray-600">Contact : 647-527-4970</p>
+                  <p className="text-[15px] text-black">Contact : 647-527-4970</p>
                 </div>
               </div>
-            </div>
+            </div></div>
 
             {/* IDX Links Section */}
-            <div className="md:col-span-4 flex flex-col items-center md:items-end text-center md:text-left pt-16">
-              <div className="w-full max-w-xs">
+            <div className="flex flex-col md:items-end items-center md:text-left pt-16 md:pt-16">
+              <div className="w-full max-w-xs text-center md:text-left">
                 <h5 className="text-xl font-bold mb-4">Idx Website for Realtors</h5>
                 <ul className="space-y-2">
                   {idxLinks.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.href}
-                        className="text-[15px] text-gray-600 hover:text-primary transition-colors duration-300"
+                        className="text-[15px] text-black hover:text-primary transition-colors duration-300"
                       >
                         {link.text}
                       </Link>

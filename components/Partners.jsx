@@ -35,10 +35,9 @@ const Partners = () => {
               <div className="space-y-3">
                 <div className="relative overflow-hidden rounded-[0.5rem]">
                   <div className=" aspect-h-9 imghei2">
-                    <Image
+                    <img
                       src={partner.image}
                       alt={partner.title}
-                      fill
                       className="imghei2 transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
@@ -57,10 +56,9 @@ const Partners = () => {
         <div className="flex flex-col items-center mt-8 md:mt-12">
           <Link
             href="/pre-construction-list"
-            className="text-base md:text-lg text-center text-gray-900 hover:text-primary transition-colors duration-300 inline-flex items-center"
+            className="text-base md:text-lg text-center text-gray-900 hover:text-primary transition-colors duration-300 flex items-center"
           >
-            Check out all the list of Preconstruction platforms and projects
-            <ArrowRight className="inline-block ml-1 w-4" />
+            Check out all the list of Preconstruction platforms and projects &nbsp; → 
           </Link>
         </div>
       </div>
